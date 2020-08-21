@@ -1,0 +1,133 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>otra combinacion</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+    <script type="module">
+				import * as THREE from "./three.module.js";
+				import {GUI} from "./dat.gui.module.js";
+				import {MapControls} from "./OrbitControls.js";
+
+				var scene, camera, renderer;
+				var aa = 4.5;
+				var bb = 9.5;
+
+				scene = new THREE.Scene();
+
+				camera = new THREE.PerspectiveCamera(
+				  60,
+					window.innerWidth/window.innerHeight
+				);
+				camera.lookAt(new THREE.Vector3(0,0,0));
+
+				renderer = new THREE.WebGLRenderer();
+				renderer.setSize(window.innerWidth,window.innerHeight);
+				document.body.appendChild(renderer.domElement);
+
+
+				//geometrias
+				var cube = new THREE.Mesh(
+				  new THREE.BoxGeometry(0.5,0.5,0.5),
+					new THREE.MeshBasicMaterial({color:0x00ff00})
+				);
+				cube.position.z = -3;
+				cube.position.y = -3;
+				scene.add(cube);
+				//piso
+				var txrFloor = new THREE.TextureLoader(); 
+				var floorTxr = new txrFloor.load("img/pisoR.png");
+				var floor = new THREE.Mesh(
+				  new THREE.PlaneGeometry(20,10,10,10),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:floorTxr})
+								);
+				floor.rotation.x = -Math.PI/2;
+				floor.position.y = -2;
+				scene.add(floor);
+				//techo
+				var txrCeil = new THREE.TextureLoader();
+				var ceilTxr = new txrCeil.load("img/techoR.png");
+				var ceil = new THREE.Mesh(
+				  new THREE.PlaneGeometry(20,10,10,10),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:ceilTxr})
+								);
+				ceil.rotation.x = Math.PI/2;
+				ceil.position.y = 1.5;
+				scene.add(ceil);
+				//pared1
+				var txrWallA = new THREE.TextureLoader();
+				var wallATxr = new txrWallA.load("img/wall1R.png");
+				var wallA = new THREE.Mesh(
+				  new THREE.PlaneGeometry(20,3.5),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:wallATxr})
+				);
+				wallA.position.z = -5;
+				wallA.position.y = -0.25;
+				scene.add(wallA);
+				//cuadro1
+				var txrPic01 = new THREE.TextureLoader();
+				var pic01Txr = new txrPic01.load("img/p01/c01.jpg");
+				var pic01 = new THREE.Mesh(
+				  new THREE.PlaneGeometry(1.23,1),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:pic01Txr})
+				);
+				pic01.position.z = -4.9;
+				scene.add(pic01);
+				var pic01B = new THREE.Mesh(
+				  new THREE.BoxGeometry(1.23,1,0.05,0),
+					new THREE.MeshBasicMaterial({color:0x254b62}));
+				pic01B.position.z = -4.925;
+				scene.add(pic01B);
+				
+				var gallery = new THREE.Group();
+				gallery.add(floor);
+				gallery.add(ceil);
+				gallery.add(pic01);
+				gallery.add(pic01B);
+				gallery.add(wallA);
+				scene.add(gallery);
+
+				var animate = function(){
+				  requestAnimationFrame(animate);
+				  renderer.render(scene,camera);
+
+					if (Math.abs(camera.position.z - cube.position.z) > aa){
+						if (camera.position.z - cube.position.z < 0){
+								cube.position.z = camera.position.z +aa;
+						}
+						else {
+								cube.position.z = camera.position.z -aa;
+						}
+					}
+				
+					if (Math.abs(camera.position.x - cube.position.x) > bb){
+						if (camera.position.x - cube.position.x < 0){
+								cube.position.x = camera.position.x +bb;
+						}
+						else {
+								cube.position.x = camera.position.x -bb;
+						}
+					}
+
+					gallery.position.z = cube.position.z;
+					gallery.position.x = cube.position.x;
+				}
+
+				animate();
+
+				//resize
+				window.addEventListener('resize',function(){
+				  renderer.setSize(window.innerWidth,window.innerHeight);
+					camera.aspect = window.innerWidth/window.innerHeight;
+				  camera.updateProjectionMatrix();
+				});
+
+				camera.position.z = 0.5;//truco estranio
+				var controls = new MapControls(camera, renderer.domElement);
+				controls.enableZoom = false;
+				controls.panSpeed = 4;
+				controls.keyPanSpeed = 20;
+    </script>
+	</body>
+</html>
