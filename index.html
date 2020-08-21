@@ -74,6 +74,26 @@
 				wallB.position.y = -0.25;
 				wallB.rotation.y = Math.PI;
 				scene.add(wallB);
+				//pared3
+				var txrWallC = new THREE.TextureLoader();
+				var wallCTxr = new txrWallC.load("img/wall2R.png");
+				var wallC = new THREE.Mesh(
+				  new THREE.PlaneGeometry(10,3.5),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:wallCTxr})
+				);
+				wallC.position.y = -0.25;
+				wallC.position.x = -10;
+				wallC.rotation.y = Math.PI/2;
+				scene.add(wallC);
+				//pared4
+				var wallD = new THREE.Mesh(
+				  new THREE.PlaneGeometry(10,3.5),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:wallCTxr})
+				);
+				wallD.position.y = -0.25;
+				wallD.position.x = 10;
+				wallD.rotation.y = -Math.PI/2;
+				scene.add(wallD);
 
 				//cuadro1
 				var txrPic01 = new THREE.TextureLoader();
@@ -97,6 +117,8 @@
 				gallery.add(pic01B);
 				gallery.add(wallA);
 				gallery.add(wallB);
+				gallery.add(wallC);
+				gallery.add(wallD);
 				scene.add(gallery);
 
 				var animate = function(){
