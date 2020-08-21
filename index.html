@@ -65,6 +65,16 @@
 				wallA.position.z = -5;
 				wallA.position.y = -0.25;
 				scene.add(wallA);
+				//pared2
+				var wallB = new THREE.Mesh(
+				  new THREE.PlaneGeometry(20,3.5),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:wallATxr})
+				);
+				wallB.position.z = 5;
+				wallB.position.y = -0.25;
+				wallB.rotation.y = Math.PI;
+				scene.add(wallB);
+
 				//cuadro1
 				var txrPic01 = new THREE.TextureLoader();
 				var pic01Txr = new txrPic01.load("img/p01/c01.jpg");
@@ -86,6 +96,7 @@
 				gallery.add(pic01);
 				gallery.add(pic01B);
 				gallery.add(wallA);
+				gallery.add(wallB);
 				scene.add(gallery);
 
 				var animate = function(){
