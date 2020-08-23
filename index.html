@@ -18,31 +18,23 @@
 
 				camera = new THREE.PerspectiveCamera(
 				  60,
-					window.innerWidth/window.innerHeight
-				);
-				//camera.lookAt(new THREE.Vector3(3,0,1));
-
+					window.innerWidth/window.innerHeight);
 				renderer = new THREE.WebGLRenderer();
 				renderer.setSize(window.innerWidth,window.innerHeight);
 				document.body.appendChild(renderer.domElement);
 
-
 				//geometrias
 				var cube = new THREE.Mesh(
 				  new THREE.BoxGeometry(0.5,0.5,0.5),
-					new THREE.MeshBasicMaterial({color:0x00ff00})
-				);
-				cube.position.z = -2;
-				cube.position.y = -3;
-				cube.position.x = -3;
+					new THREE.MeshBasicMaterial({color:0x00ff00}));
+				cube.position.set(-3,-3,-2);
 				scene.add(cube);
 				//piso
 				var txrFloor = new THREE.TextureLoader(); 
 				var floorTxr = new txrFloor.load("img/pisoR.png");
 				var floor = new THREE.Mesh(
 				  new THREE.PlaneGeometry(20,10,10,10),
-					new THREE.MeshBasicMaterial({color:0xffffff,map:floorTxr})
-								);
+					new THREE.MeshBasicMaterial({color:0xffffff,map:floorTxr}));
 				floor.rotation.x = -Math.PI/2;
 				floor.position.y = -2;
 				scene.add(floor);
@@ -51,8 +43,7 @@
 				var ceilTxr = new txrCeil.load("img/techoR.png");
 				var ceil = new THREE.Mesh(
 				  new THREE.PlaneGeometry(20,10,10,10),
-					new THREE.MeshBasicMaterial({color:0xffffff,map:ceilTxr})
-								);
+					new THREE.MeshBasicMaterial({color:0xffffff,map:ceilTxr}));
 				ceil.rotation.x = Math.PI/2;
 				ceil.position.y = 1.5;
 				scene.add(ceil);
@@ -61,18 +52,14 @@
 				var wallATxr = new txrWallA.load("img/wall1R.png");
 				var wallA = new THREE.Mesh(
 				  new THREE.PlaneGeometry(20,3.5),
-					new THREE.MeshBasicMaterial({color:0xffffff,map:wallATxr})
-				);
-				wallA.position.z = -5;
-				wallA.position.y = -0.25;
+					new THREE.MeshBasicMaterial({color:0xffffff,map:wallATxr}));
+				wallA.position.set(0,-0.25,-5);
 				scene.add(wallA);
 				//pared2
 				var wallB = new THREE.Mesh(
 				  new THREE.PlaneGeometry(20,3.5),
-					new THREE.MeshBasicMaterial({color:0xffffff,map:wallATxr})
-				);
-				wallB.position.z = 5;
-				wallB.position.y = -0.25;
+					new THREE.MeshBasicMaterial({color:0xffffff,map:wallATxr}));
+				wallB.position.set(0,-0.25,5);
 				wallB.rotation.y = Math.PI;
 				scene.add(wallB);
 				//pared3
@@ -80,19 +67,15 @@
 				var wallCTxr = new txrWallC.load("img/wall2R.png");
 				var wallC = new THREE.Mesh(
 				  new THREE.PlaneGeometry(10,3.5),
-					new THREE.MeshBasicMaterial({color:0xffffff,map:wallCTxr})
-				);
-				wallC.position.y = -0.25;
-				wallC.position.x = -10;
+					new THREE.MeshBasicMaterial({color:0xffffff,map:wallCTxr}));
+				wallC.position.set(-10,-0.25,0);
 				wallC.rotation.y = Math.PI/2;
 				scene.add(wallC);
 				//pared4
 				var wallD = new THREE.Mesh(
 				  new THREE.PlaneGeometry(10,3.5),
-					new THREE.MeshBasicMaterial({color:0xffffff,map:wallCTxr})
-				);
-				wallD.position.y = -0.25;
-				wallD.position.x = 10;
+					new THREE.MeshBasicMaterial({color:0xffffff,map:wallCTxr}));
+				wallD.position.set(10,-0.25,0);
 				wallD.rotation.y = -Math.PI/2;
 				scene.add(wallD);
 
@@ -115,40 +98,99 @@
 				var etq01 = new THREE.Mesh(
 				  new THREE.PlaneGeometry(0.25,0.125),
 					new THREE.MeshBasicMaterial({color:0xffffff,map:etq01Txr}));
-				etq01.position.z = -4.99;
-				etq01.position.x = 0.8;
-				etq01.position.y = - 0.45;
+				etq01.position.set(0.8,- 0.45,-4.99);
 				scene.add(etq01);
 
 				//cuadro2 balsero 1
 				var txrPic02 = new THREE.TextureLoader();
 				var pic02Txr = new txrPic02.load("img/p01/balsero1.jpg");
 				var pic02 = new THREE.Mesh(
-				  new THREE.PlaneGeometry(0.57,1),
-					new THREE.MeshBasicMaterial({color:0xffffff,map:pic02Txr})
-				);
-				pic02.position.z = -4.9;
-				pic02.position.x = 3;
+				  new THREE.PlaneGeometry(0.285,0.5),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:pic02Txr}));
+				pic02.position.set(4,0,-4.9);
 				scene.add(pic02);
 				var pic02B = new THREE.Mesh(
-				  new THREE.BoxGeometry(0.57,1,0.05,0),
-					new THREE.MeshBasicMaterial({color:0x254b62}));
-				pic02B.position.z = -4.925;
-				pic02B.position.x = 3;
+				  new THREE.BoxGeometry(0.285,0.5,0.05,0),
+					new THREE.MeshBasicMaterial({color:0x6b4419}));
+				pic02B.position.set(4,0,-4.925);
 				scene.add(pic02B);
-				
+
+				//cuadro 3 puente
+				var txrPic03 = new THREE.TextureLoader();
+				var pic03Txr = new txrPic03.load("img/p01/c03.jpg");
+				var pic03 = new THREE.Mesh(
+				  new THREE.PlaneGeometry(1.23,1),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:pic03Txr}));
+				pic03.position.z = -4.9;
+				pic03.position.x = 2;
+				scene.add(pic03);
+				var pic03B = new THREE.Mesh(
+				  new THREE.BoxGeometry(1.23,1,0.05,0),
+					new THREE.MeshBasicMaterial({color:0x193832}));
+				pic03B.position.set(2,0,-4.925);
+				scene.add(pic03B);
+				//etiqueta 03 puente
+				var txrEtq03 = new THREE.TextureLoader();
+				var etq03Txr = new txrEtq03.load("img/etq/puente.jpg");
+				var etq03 = new THREE.Mesh(
+				  new THREE.PlaneGeometry(0.25,0.125),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:etq03Txr}));
+				etq03.position.set(2.8,-0.45,-4.99);
+				scene.add(etq03);
+
+				//cuadro 04 vista lago1
+				var txrPic04 = new THREE.TextureLoader();
+				var pic04Txr = new txrPic04.load("img/p01/c04.jpg");
+				var pic04 = new THREE.Mesh(
+				  new THREE.PlaneGeometry(1.23,1),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:pic04Txr}));
+				pic04.position.set(-2,0,-4.9);
+				scene.add(pic04);
+				var pic04B = new THREE.Mesh(
+				  new THREE.BoxGeometry(1.23,1,0.05,0),
+					new THREE.MeshBasicMaterial({color:0x243b52}));
+				pic04B.position.set(-2,0,-4.925);
+				scene.add(pic04B);
+				//etiqueta 04 vistalago1
+				var txrEtq04 = new THREE.TextureLoader();
+				var etq04Txr = new txrEtq04.load("img/etq/lago2.jpg");
+				var etq04 = new THREE.Mesh(
+				  new THREE.PlaneGeometry(0.25,0.125),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:etq04Txr}));
+				etq04.position.set(-1.2,-0.45,-4.99);
+				scene.add(etq04);
+
+				//cuadro 05 vista lago2
+				var txrPic05 = new THREE.TextureLoader();
+				var pic05Txr = new txrPic05.load("img/p01/c05.jpg");
+				var pic05 = new THREE.Mesh(
+				  new THREE.PlaneGeometry(1.23,1),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:pic05Txr}));
+				pic05.position.set(-4,0,-4.9);
+				scene.add(pic05);
+				var pic05B = new THREE.Mesh(
+				  new THREE.BoxGeometry(1.23,1,0.05,0),
+					new THREE.MeshBasicMaterial({color:0x1f1f1f}));
+				pic05B.position.set(-4,0,-4.925);
+				scene.add(pic05B);
+				//etiqueta 05 vistalago2
+				var txrEtq05 = new THREE.TextureLoader();
+				var etq05Txr = new txrEtq04.load("img/etq/lago1.jpg");
+				var etq05 = new THREE.Mesh(
+				  new THREE.PlaneGeometry(0.25,0.125),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:etq04Txr}));
+				etq05.position.set(-3.2,-0.45,-4.99); 
+				scene.add(etq05);
+
+				//grupo galeria
 				var gallery = new THREE.Group();
-				gallery.add(floor);
-				gallery.add(ceil);
-				gallery.add(pic01);
-				gallery.add(pic01B);
-				gallery.add(etq01);
-				gallery.add(wallA);
-				gallery.add(wallB);
-				gallery.add(wallC);
-				gallery.add(wallD);
-				gallery.add(pic02);
-				gallery.add(pic02B);
+				gallery.add(floor,ceil);
+				gallery.add(wallA,wallB,wallC,wallD);
+				gallery.add(pic02,pic02B);
+				gallery.add(pic01,pic01B,etq01);
+				gallery.add(pic03,pic03B,etq03);
+				gallery.add(pic04,pic04B,etq04);
+				gallery.add(pic05,pic05B,etq05);
 				scene.add(gallery);
 
 				var animate = function(){
