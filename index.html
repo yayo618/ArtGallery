@@ -20,7 +20,7 @@
 				  60,
 					window.innerWidth/window.innerHeight
 				);
-				camera.lookAt(new THREE.Vector3(0,0,0));
+				//camera.lookAt(new THREE.Vector3(3,0,1));
 
 				renderer = new THREE.WebGLRenderer();
 				renderer.setSize(window.innerWidth,window.innerHeight);
@@ -32,8 +32,9 @@
 				  new THREE.BoxGeometry(0.5,0.5,0.5),
 					new THREE.MeshBasicMaterial({color:0x00ff00})
 				);
-				cube.position.z = -3;
+				cube.position.z = -2;
 				cube.position.y = -3;
+				cube.position.x = -3;
 				scene.add(cube);
 				//piso
 				var txrFloor = new THREE.TextureLoader(); 
@@ -100,8 +101,7 @@
 				var pic01Txr = new txrPic01.load("img/p01/c01.jpg");
 				var pic01 = new THREE.Mesh(
 				  new THREE.PlaneGeometry(1.23,1),
-					new THREE.MeshBasicMaterial({color:0xffffff,map:pic01Txr})
-				);
+					new THREE.MeshBasicMaterial({color:0xffffff,map:pic01Txr}));
 				pic01.position.z = -4.9;
 				scene.add(pic01);
 				var pic01B = new THREE.Mesh(
@@ -109,16 +109,46 @@
 					new THREE.MeshBasicMaterial({color:0x254b62}));
 				pic01B.position.z = -4.925;
 				scene.add(pic01B);
+				//etiqueta 01 iglesia
+				var txrEtq01 = new THREE.TextureLoader();
+				var etq01Txr = new txrEtq01.load("img/etq/iglesia.jpg");
+				var etq01 = new THREE.Mesh(
+				  new THREE.PlaneGeometry(0.25,0.125),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:etq01Txr}));
+				etq01.position.z = -4.99;
+				etq01.position.x = 0.8;
+				etq01.position.y = - 0.45;
+				scene.add(etq01);
+
+				//cuadro2 balsero 1
+				var txrPic02 = new THREE.TextureLoader();
+				var pic02Txr = new txrPic02.load("img/p01/balsero1.jpg");
+				var pic02 = new THREE.Mesh(
+				  new THREE.PlaneGeometry(0.57,1),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:pic02Txr})
+				);
+				pic02.position.z = -4.9;
+				pic02.position.x = 3;
+				scene.add(pic02);
+				var pic02B = new THREE.Mesh(
+				  new THREE.BoxGeometry(0.57,1,0.05,0),
+					new THREE.MeshBasicMaterial({color:0x254b62}));
+				pic02B.position.z = -4.925;
+				pic02B.position.x = 3;
+				scene.add(pic02B);
 				
 				var gallery = new THREE.Group();
 				gallery.add(floor);
 				gallery.add(ceil);
 				gallery.add(pic01);
 				gallery.add(pic01B);
+				gallery.add(etq01);
 				gallery.add(wallA);
 				gallery.add(wallB);
 				gallery.add(wallC);
 				gallery.add(wallD);
+				gallery.add(pic02);
+				gallery.add(pic02B);
 				scene.add(gallery);
 
 				var animate = function(){
