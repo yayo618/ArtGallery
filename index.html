@@ -107,12 +107,14 @@
 				var pic02 = new THREE.Mesh(
 				  new THREE.PlaneGeometry(0.285,0.5),
 					new THREE.MeshBasicMaterial({color:0xffffff,map:pic02Txr}));
-				pic02.position.set(4,0,-4.9);
+				pic02.position.set(8,0,4.9);
+				pic02.rotation.y = Math.PI;
 				scene.add(pic02);
 				var pic02B = new THREE.Mesh(
 				  new THREE.BoxGeometry(0.285,0.5,0.05,0),
 					new THREE.MeshBasicMaterial({color:0x6b4419}));
-				pic02B.position.set(4,0,-4.925);
+				pic02B.position.set(8,0,4.925);
+				pic02B.rotation.y = Math.PI;
 				scene.add(pic02B);
 
 				//cuadro 3 puente
@@ -175,12 +177,101 @@
 				scene.add(pic05B);
 				//etiqueta 05 vistalago2
 				var txrEtq05 = new THREE.TextureLoader();
-				var etq05Txr = new txrEtq04.load("img/etq/lago1.jpg");
+				var etq05Txr = new txrEtq05.load("img/etq/lago1.jpg");
 				var etq05 = new THREE.Mesh(
 				  new THREE.PlaneGeometry(0.25,0.125),
-					new THREE.MeshBasicMaterial({color:0xffffff,map:etq04Txr}));
+					new THREE.MeshBasicMaterial({color:0xffffff,map:etq05Txr}));
 				etq05.position.set(-3.2,-0.45,-4.99); 
 				scene.add(etq05);
+				
+				//cuadro 06 vista lago3
+				var txrPic06 = new THREE.TextureLoader();
+				var pic06Txr = new txrPic06.load("img/p01/c06.jpg");
+				var pic06 = new THREE.Mesh(
+				  new THREE.PlaneGeometry(1.16,0.9),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:pic06Txr}));
+				pic06.position.set(4,0,-4.9);
+				scene.add(pic06);
+				var pic06B = new THREE.Mesh(
+				  new THREE.BoxGeometry(1.16,0.9,0.05,0),
+					new THREE.MeshBasicMaterial({color:0x10101e}));
+				pic06B.position.set(4,0,-4.925);
+				scene.add(pic06B);
+				//etiqueta 06 vistalago3
+				var txrEtq06 = new THREE.TextureLoader();
+				var etq06Txr = new txrEtq06.load("img/etq/lago3.jpg");
+				var etq06 = new THREE.Mesh(
+				  new THREE.PlaneGeometry(0.25,0.125),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:etq06Txr}));
+				etq06.position.set(4.77,-0.4,-4.99); 
+				scene.add(etq06);
+
+				//cuadro07 bodegon
+				var txrPic07 = new THREE.TextureLoader();
+				var pic07Txr = new txrPic07.load("img/p01/c07.jpg");
+				var pic07 = new THREE.Mesh(
+				  new THREE.PlaneGeometry(0.96,0.777),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:pic07Txr}));
+				pic07.position.set(6,0,-4.9);
+				scene.add(pic07);
+				var pic07B = new THREE.Mesh(
+				  new THREE.BoxGeometry(0.96,0.777,0.05,0),
+					new THREE.MeshBasicMaterial({color:0x2b2015}));
+				pic07B.position.set(6,0,-4.925);
+				scene.add(pic07B);
+				//etiqueta 07 bodegon
+				var txrEtq07 = new THREE.TextureLoader();
+				var etq07Txr = new txrEtq07.load("img/etq/bodegon.jpg");
+				var etq07 = new THREE.Mesh(
+				  new THREE.PlaneGeometry(0.25,0.125),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:etq07Txr}));
+				etq07.position.set(6.77,-0.4,-4.99); 
+				scene.add(etq07);
+
+				//cuadro08 balsero2
+				var txrPic08 = new THREE.TextureLoader();
+				var pic08Txr = new txrPic08.load("img/p01/c08.jpg");
+				var pic08 = new THREE.Mesh(
+				  new THREE.PlaneGeometry(1.5,1.2),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:pic08Txr}));
+				pic08.position.set(-6.25,0,-4.9);
+				scene.add(pic08);
+				var pic08B = new THREE.Mesh(
+				  new THREE.BoxGeometry(1.5,1.2,0.05,0),
+					new THREE.MeshBasicMaterial({color:0x484120}));
+				pic08B.position.set(-6.25,0,-4.925);
+				scene.add(pic08B);
+				//etiqueta 08 balsero2
+				var txrEtq08 = new THREE.TextureLoader();
+				var etq08Txr = new txrEtq08.load("img/etq/balsero2.jpg");
+				var etq08 = new THREE.Mesh(
+				  new THREE.PlaneGeometry(0.25,0.125),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:etq08Txr}));
+				etq08.position.set(-5.25,-0.4,-4.99); 
+				scene.add(etq08);
+
+				//cuadro 09 ninio
+				var txrPic09 = new THREE.TextureLoader();
+				var pic09Txr = new txrPic09.load("img/p01/c09.jpg");
+				var pic09 = new THREE.Mesh(
+				  new THREE.PlaneGeometry(0.8,0.88),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:pic09Txr}));
+				pic09.position.set(7.8,0,-4.9);
+				scene.add(pic09);
+				var pic09B = new THREE.Mesh(
+					new THREE.BoxGeometry(0.8,0.88,0.05,0),
+					new THREE.MeshBasicMaterial({color:0x484120}));
+				pic09B.position.set(7.8,0,-4.925);
+				scene.add(pic09B);
+				//etiqueta 09 ninio
+				var txrEtq09 = new THREE.TextureLoader();
+				var etq09Txr = new txrEtq09.load("img/etq/nino.jpg");
+				var etq09 = new THREE.Mesh(
+				  new THREE.PlaneGeometry(0.25,0.125),
+					new THREE.MeshBasicMaterial({color:0xffffff,map:etq09Txr}));
+				etq09.position.set(8.5,-0.4,-4.99); 
+				scene.add(etq09);
+
 
 				//grupo galeria
 				var gallery = new THREE.Group();
@@ -191,6 +282,10 @@
 				gallery.add(pic03,pic03B,etq03);
 				gallery.add(pic04,pic04B,etq04);
 				gallery.add(pic05,pic05B,etq05);
+				gallery.add(pic06,pic06B,etq06);
+				gallery.add(pic07,pic07B,etq07);
+				gallery.add(pic08,pic08B,etq08);
+				gallery.add(pic09,pic09B,etq09);
 				scene.add(gallery);
 
 				var animate = function(){
