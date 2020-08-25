@@ -31,19 +31,21 @@
 				scene.add(cube);
 				//piso
 				var txrFloor = new THREE.TextureLoader(); 
-				var floorTxr = new txrFloor.load("img/pisoR.png");
+				var floorTxr = new txrFloor.load("img/PISOa.png");
 				var floor = new THREE.Mesh(
-				  new THREE.PlaneGeometry(20,10,10,10),
+				  new THREE.PlaneGeometry(10,20,10,10),
 					new THREE.MeshBasicMaterial({color:0xffffff,map:floorTxr}));
 				floor.rotation.x = -Math.PI/2;
+				floor.rotation.z = Math.PI/2;
 				floor.position.y = -2;
 				//techo
 				var txrCeil = new THREE.TextureLoader();
-				var ceilTxr = new txrCeil.load("img/techoR.png");
+				var ceilTxr = new txrCeil.load("img/TECHOa.png");
 				var ceil = new THREE.Mesh(
-				  new THREE.PlaneGeometry(20,10,10,10),
+				  new THREE.PlaneGeometry(10,20,10,10),
 					new THREE.MeshBasicMaterial({color:0xffffff,map:ceilTxr}));
 				ceil.rotation.x = Math.PI/2;
+				ceil.rotation.z = Math.PI/2;
 				ceil.position.y = 1.5;
 				//pared1
 				var txrWallA = new THREE.TextureLoader();
@@ -67,9 +69,11 @@
 				wallC.position.set(-10,-0.25,0);
 				wallC.rotation.y = Math.PI/2;
 				//pared4
+				var txrWallD = new THREE.TextureLoader();
+				var wallDTxr = new txrWallD.load("img/wall2a.png");
 				var wallD = new THREE.Mesh(
 				  new THREE.PlaneGeometry(10,3.5),
-					new THREE.MeshBasicMaterial({color:0xffffff,map:wallCTxr}));
+					new THREE.MeshBasicMaterial({color:0xffffff,map:wallDTxr}));
 				wallD.position.set(10,-0.25,0);
 				wallD.rotation.y = -Math.PI/2;
 
