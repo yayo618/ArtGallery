@@ -33,12 +33,13 @@
 				var venTxr = new THREE.CubeTextureLoader();
 				venTxr.setPath('img/vent/');
 				var txrVen = venTxr.load([
-				  'ac.png','ac.png',
-					'ac.png','ac.png',
-					'ac.png','ac.png']);
-				var vent = new THREE.Mesh(
-				  new THREE.BoxGeometry(-30,-20,-20),
-					new THREE.MeshBasicMaterial({color:0xffffff,envMap:txrVen}));
+				  'ee1.jpg','ee4.jpg',
+					'ee4.jpg','ee4.jpg',
+					'ee2.jpg','ee3.jpg']);
+				scene.background = txrVen;
+				//var vent = new THREE.Mesh(
+				 // new THREE.BoxGeometry(-30,-20,-20),
+					//new THREE.MeshBasicMaterial({color:0xffffff,envMap:txrVen}));
 				//piso
 				var txrFloor = new THREE.TextureLoader(); 
 				var floorTxr = new txrFloor.load("img/PISOa.png");
@@ -107,6 +108,38 @@
 					new THREE.MeshBasicMaterial({color:0x64646e}));
 				muroc.position.set(-10.3,1.5,0);
 				muroc.rotation.x = Math.PI/2;
+				var bar1 = new THREE.Mesh(
+				  new THREE.BoxGeometry(0.02,0.02,4),
+					new THREE.MeshBasicMaterial({color:0x000000}));
+				bar1.position.set(-10.3,1.5,0);
+				var bar2 = new THREE.Mesh(
+				  new THREE.BoxGeometry(0.02,0.02,4),
+					new THREE.MeshBasicMaterial({color:0x000000}));
+				bar2.position.set(-10.3,-0.5,0);
+				var bar3 = new THREE.Mesh(
+				  new THREE.BoxGeometry(0.02,2,0.02),
+					new THREE.MeshBasicMaterial({color:0x000000}));
+				bar3.position.set(-10.3,0.5,2);
+				var bar4 = new THREE.Mesh(
+				  new THREE.BoxGeometry(0.02,2,0.02),
+					new THREE.MeshBasicMaterial({color:0x000000}));
+				bar4.position.set(-10.3,0.5,1);
+				var bar5 = new THREE.Mesh(
+				  new THREE.BoxGeometry(0.02,2,0.02),
+					new THREE.MeshBasicMaterial({color:0x000000}));
+				bar5.position.set(-10.3,0.5,0);
+				var bar6 = new THREE.Mesh(
+				  new THREE.BoxGeometry(0.02,2,0.02),
+					new THREE.MeshBasicMaterial({color:0x000000}));
+				bar6.position.set(-10.3,0.5,-1);
+				var bar7 = new THREE.Mesh(
+				  new THREE.BoxGeometry(0.02,2,0.02),
+					new THREE.MeshBasicMaterial({color:0x000000}));
+				bar7.position.set(-10.3,0.5,-2);
+				var bar8 = new THREE.Mesh(
+				  new THREE.BoxGeometry(0.02,0.02,4),
+					new THREE.MeshBasicMaterial({color:0x000000}));
+				bar8.position.set(-10.3,1,0);
 				//pared4
 				var txrWallD = new THREE.TextureLoader();
 				var wallDTxr = new txrWallD.load("img/wall2a.png");
@@ -472,6 +505,7 @@
 				var gallery = new THREE.Group();
 				gallery.add(floor,ceil);
 				gallery.add(wallA,wallB,wallC,wallCC,wallCCC,wallD);
+				gallery.add(bar1,bar2,bar3,bar4,bar5,bar6,bar7,bar8);
 				gallery.add(muroa,murob,muroc);
 				gallery.add(pic02,pic02B,etq02);
 				gallery.add(pic01,pic01B,etq01);
@@ -490,7 +524,7 @@
 				gallery.add(pic15,pic15B,etq15);
 				gallery.add(pic16,pic16B,etq16);
 				gallery.add(pic17,pic17B,etq17);
-				gallery.add(vent);
+				//gallery.add(vent);
 				scene.add(gallery);
 
 				var animate = function(){
