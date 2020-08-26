@@ -37,9 +37,6 @@
 					'ee4.jpg','ee4.jpg',
 					'ee2.jpg','ee3.jpg']);
 				scene.background = txrVen;
-				//var vent = new THREE.Mesh(
-				 // new THREE.BoxGeometry(-30,-20,-20),
-					//new THREE.MeshBasicMaterial({color:0xffffff,envMap:txrVen}));
 				//piso
 				var txrFloor = new THREE.TextureLoader(); 
 				var floorTxr = new txrFloor.load("img/PISOa.png");
@@ -524,7 +521,6 @@
 				gallery.add(pic15,pic15B,etq15);
 				gallery.add(pic16,pic16B,etq16);
 				gallery.add(pic17,pic17B,etq17);
-				//gallery.add(vent);
 				scene.add(gallery);
 
 				var animate = function(){
